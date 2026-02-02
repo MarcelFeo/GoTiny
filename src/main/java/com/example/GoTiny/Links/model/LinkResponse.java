@@ -1,4 +1,4 @@
-package com.example.GoTiny.Links;
+package com.example.GoTiny.Links.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
