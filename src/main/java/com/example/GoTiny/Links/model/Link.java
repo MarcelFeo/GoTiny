@@ -1,5 +1,4 @@
-package GoTiny.Links;
-
+package com.example.GoTiny.Links.model; // Adicionado o .model no final
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
