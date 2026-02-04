@@ -35,7 +35,7 @@ public class LinkService {
     public Link getOriginalUrl(String shortUrl) {
 
         try {
-            return linkRepository.findByUrlLong(shortUrl);
+            return linkRepository.findByUrlShort(shortUrl);
         } catch(Exception e) {
             throw new RuntimeException("URL not exist...", e);
         }
