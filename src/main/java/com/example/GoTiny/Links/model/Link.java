@@ -9,7 +9,8 @@ import java.util.UUID;
 public class Link {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "uuid")
     private UUID id;
 
     private String urlLong;
