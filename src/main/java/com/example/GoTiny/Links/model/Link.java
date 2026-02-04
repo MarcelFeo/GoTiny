@@ -25,6 +25,10 @@ public class Link {
         this.urlCreated_at = urlCreated_at;
     }
 
+    public Link() {
+
+    }
+
     public UUID getId() {
         return id;
     }

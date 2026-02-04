@@ -23,6 +23,10 @@ public class LinkResponse {
         this.urlCreated_at = urlCreated_at;
     }
 
+    public LinkResponse() {
+
+    }
+
     public UUID getId() {
         return id;
     }
