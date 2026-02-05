@@ -14,8 +14,13 @@ public class Link {
     private UUID id;
 
     private String urlLong;
+
+    @Column(nullable = false, unique = true)
     private String urlShort;
+
+    @Column(columnDefinition = "TEXT")
     private String urlQrCode;
+
     private LocalDateTime urlCreated_at;
 
     public Link(UUID id, String urlLong, String urlShort, String urlQrCode, LocalDateTime urlCreated_at) {

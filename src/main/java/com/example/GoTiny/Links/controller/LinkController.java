@@ -22,20 +22,24 @@ public class LinkController {
     @PostMapping("/gotiny")
     public ResponseEntity<LinkResponse> generateShortUrl(@RequestBody Map<String, String> request) {
 
-        String originalUrl = request.get("urlLong");
-        Link link = linkService.shortenURL(originalUrl);
+        try {
+            String originalUrl = request.get("urlLong");
+            Link link = linkService.shortenURL(originalUrl);
 
-        String redirectUserUrl = "http://localhost:8081/r/" + link.getUrlShort();
+            String redirectUserUrl = "http://localhost:8081/r/" + link.getUrlShort();
 
-        LinkResponse response = new LinkResponse(
-                link.getId(),
-                link.getUrlLong(),
-                redirectUserUrl,
-                link.getUrlQrCode(),
-                link.getUrlCreated_at()
-        );
+            LinkResponse response = new LinkResponse(
+                    link.getId(),
+                    link.getUrlLong(),
+                    redirectUserUrl,
+                    link.getUrlQrCode(),
+                    link.getUrlCreated_at()
+            );
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        } catch (Exception e) {
+            throw new RuntimeException("URL not exist...", e);
+        }
 
     }
 
