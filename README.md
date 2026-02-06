@@ -1,5 +1,7 @@
 ## 🚀 GoTiny — Encurtador de URLs com QR Code
 
+[▶️ Assistir demo no YouTube](https://youtu.be/0lB5T_ID378)
+
 GoTiny é uma aplicação backend desenvolvida em **Spring Boot** que permite encurtar URLs longas, redirecionar usuários automaticamente e gerar **QR Codes** para facilitar o compartilhamento.
 
 Este projeto foi criado com foco em boas práticas de arquitetura, organização de código e aprendizado de conceitos modernos de desenvolvimento backend.
