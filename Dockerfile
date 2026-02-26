@@ -17,13 +17,19 @@ RUN ./gradlew bootJar --no-daemon
 
 # Estágio 2: Runtime (Execução)
 FROM eclipse-temurin:17-jdk-alpine
-WORKDIR /app
+# Forçamos o diretório raiz para não haver confusão de caminhos
+WORKDIR /
 
-# O Gradle gera o jar em build/libs. O "-plain.jar" deve ser ignorado.
-COPY --from=build /app/build/libs/*[!plain].jar app.jar
+# Copiamos o jar do estágio de build para a raiz do container atual
+COPY --from=build /app/build/libs/*[!plain].jar /app.jar
 
-# Configuração de memória para planos gratuitos (evita que o Spring caia)
+# Garantimos que o arquivo é legível
+RUN chmod 644 /app.jar
+
+# Configuração de memória para planos gratuitos
 ENV JAVA_TOOL_OPTIONS="-Xmx300m -Xss512k"
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Usamos o caminho absoluto /app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
