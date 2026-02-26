@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USER:postgres}
+    url: ${DB_URL:jdbc:postgresql://db.jvanzpwjodlwjrutuyev.supabase.co:5432/postgres?sslmode=require}
+    password: ${DB_PASSWORD:gotiny2025project}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+server:
+  port: '8080'
+

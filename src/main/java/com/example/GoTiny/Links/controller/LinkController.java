@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class LinkController {
 
     private LinkService linkService;
@@ -20,6 +21,7 @@ public class LinkController {
     }
 
     @PostMapping("/gotiny")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<LinkResponse> generateShortUrl(@RequestBody Map<String, String> request) {
 
         try {
@@ -44,6 +46,7 @@ public class LinkController {
     }
 
     @GetMapping("/r/{urlShort}")
+    @CrossOrigin(origins = "*")
     public void redirectLink(@PathVariable String urlShort, HttpServletResponse response) {
 
         Link link = linkService.getOriginalUrl(urlShort);
