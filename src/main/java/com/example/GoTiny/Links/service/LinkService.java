@@ -37,7 +37,7 @@ public class LinkService {
         link.setUrlCreated_at(LocalDateTime.now());
 
         try {
-            byte[] qr = generateQRCode(shortUrl);
+            byte[] qr = generateQRCode(originalUrl);
             String base64 = Base64.getEncoder().encodeToString(qr);
             link.setUrlQrCode(base64);
         } catch (Exception e) {
