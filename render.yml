@@ -1,0 +1,28 @@
+services:
+  # PostgreSQL privado
+  - type: pserv
+    name: postgres-gotiny
+    runtime: docker
+    plan: free
+    dockerContext: ./postgres
+    envVars:
+      - key: POSTGRES_DB
+        value: gotiny
+      - key: POSTGRES_USER
+        value: gotiny
+      - key: POSTGRES_PASSWORD
+        value: gotiny
+
+  # API Spring Boot
+  - type: web
+    name: gotiny-api
+    runtime: docker
+    plan: free
+    dockerContext: .
+    envVars:
+      - key: DB_URL
+        value: jdbc:postgresql://postgres-gotiny:5432/gotiny
+      - key: DB_USER
+        value: gotiny
+      - key: DB_PASSWORD
+        value: gotiny
