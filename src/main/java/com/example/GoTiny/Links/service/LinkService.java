@@ -30,7 +30,7 @@ public class LinkService {
     public Link shortenURL(String originalUrl) {
         Link link = new Link();
         String shortCode = generateRandomURL();
-        String shortUrl = "http://localhost:8081/" + shortCode;
+        String shortUrl = "https://gotiny-api-rctr.onrender.com/" + shortCode;
 
         link.setUrlLong(originalUrl);
         link.setUrlShort(shortCode);
