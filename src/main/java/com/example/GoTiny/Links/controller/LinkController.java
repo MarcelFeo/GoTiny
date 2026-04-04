@@ -28,7 +28,7 @@ public class LinkController {
             String originalUrl = request.get("urlLong");
             Link link = linkService.shortenURL(originalUrl);
 
-            String redirectUserUrl = "http://localhost:8081/r/" + link.getUrlShort();
+            String redirectUserUrl = "https://gotiny-api-rctr.onrender.com/r/" + link.getUrlShort();
 
             LinkResponse response = new LinkResponse(
                     link.getId(),
